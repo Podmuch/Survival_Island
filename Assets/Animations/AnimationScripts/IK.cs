@@ -82,57 +82,5 @@ public class IK : MonoBehaviour
 				Avatar.SetLookAtPosition(lookAtObj.position);
 			}				
 		}
-		else
-		{
-			Avatar.SetIKPositionWeight(AvatarIKGoal.LeftFoot,0);
-			Avatar.SetIKRotationWeight(AvatarIKGoal.LeftFoot,0);
-							
-			Avatar.SetIKPositionWeight(AvatarIKGoal.RightFoot,0);
-			Avatar.SetIKRotationWeight(AvatarIKGoal.RightFoot,0);
-	
-			Avatar.SetIKPositionWeight(AvatarIKGoal.LeftHand,0);
-			Avatar.SetIKRotationWeight(AvatarIKGoal.LeftHand,0);
-							
-			Avatar.SetIKPositionWeight(AvatarIKGoal.RightHand,0);
-			Avatar.SetIKRotationWeight(AvatarIKGoal.RightHand,0);
-				
-			Avatar.SetLookAtWeight(0.0f);
-
-			if(bodyObj != null)
-			{
-				bodyObj.position = Avatar.bodyPosition;
-				bodyObj.rotation = Avatar.bodyRotation;
-			}				
-				
-			if(leftFootObj != null)
-			{
-				leftFootObj.position = Avatar.GetIKPosition(AvatarIKGoal.LeftFoot);
-				leftFootObj.rotation  = Avatar.GetIKRotation(AvatarIKGoal.LeftFoot);
-			}				
-				
-			if(rightFootObj != null)
-			{
-				rightFootObj.position = Avatar.GetIKPosition(AvatarIKGoal.RightFoot);
-				rightFootObj.rotation  = Avatar.GetIKRotation(AvatarIKGoal.RightFoot);
-			}				
-				
-			if(leftHandObj != null)
-			{
-				leftHandObj.position = Avatar.GetIKPosition(AvatarIKGoal.LeftHand);
-				leftHandObj.rotation  = Avatar.GetIKRotation(AvatarIKGoal.LeftHand);
-			}				
-				
-			if(rightHandObj != null)
-			{
-				rightHandObj.position = Avatar.GetIKPosition(AvatarIKGoal.RightHand);
-				rightHandObj.rotation  = Avatar.GetIKRotation(AvatarIKGoal.RightHand);
-			}				
-				
-				
-			if(lookAtObj != null)
-			{
-				lookAtObj.position = Avatar.bodyPosition + Avatar.bodyRotation * new Vector3(0,0.5f,1);
-			}
-		}
 	}  
 }
