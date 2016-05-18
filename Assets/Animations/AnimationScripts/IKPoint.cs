@@ -3,9 +3,12 @@ using System.Collections;
 
 public class IKPoint : MonoBehaviour
 {
-    public void OnDragEvent()
+    public MeshRenderer Renderer;
+    private void Start()
     {
-        Ray touchRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        transform.position = touchRay.origin + touchRay.direction * Vector3.Distance(touchRay.origin, transform.position);
+        if(Application.isPlaying)
+        {
+            Renderer.enabled =false;
+        }
     }
 }

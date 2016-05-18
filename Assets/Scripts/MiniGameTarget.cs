@@ -7,7 +7,7 @@ public class MiniGameTarget : MonoBehaviour
 
     public bool HitState { get; private set; }
     private float timer = 0;
-    private float hideTimer = 5.0f;
+    private float hideTimer = 8.0f;
 
 	private void Start ()
     {
