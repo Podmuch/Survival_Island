@@ -4,30 +4,29 @@ using UnityEngine.UI;
 
 public class GeneratorPowerState : MonoBehaviour
 {
-    public Player Player;
     public Image PowerStateImage;
 
-    public Sprite[] States;
+    public Sprite[] UIStates;
 
     private int currentCellsDisplayed;
 
     private void Start()
     {
-        currentCellsDisplayed = Player.CollectedCells;
+        currentCellsDisplayed = GameplayManager.Instance.Player.CollectedCells;
         SetCorrectImage();
     }
 
     private void Update()
     {
-        if(Player.CollectedCells != currentCellsDisplayed)
+        if(GameplayManager.Instance.Player.CollectedCells != currentCellsDisplayed)
         {
-            currentCellsDisplayed = Player.CollectedCells;
+            currentCellsDisplayed = GameplayManager.Instance.Player.CollectedCells;
             SetCorrectImage();
         }
     }
 
     private void SetCorrectImage()
     {
-        PowerStateImage.sprite = States[currentCellsDisplayed];
+        PowerStateImage.sprite = UIStates[currentCellsDisplayed];
     }
 }

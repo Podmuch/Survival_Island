@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 
     public float rotationSpeed = 5;
     public int CollectedCells { get; private set; }
+    public bool HasMatchbox { get; private set; }
     public bool HaveCocount { get { return currentCocount != null; } }
     private Cocount currentCocount;
     private bool blockInput = false;
@@ -21,6 +22,7 @@ public class Player : MonoBehaviour
     private void Start ()
     {
         CollectedCells = 0;
+        HasMatchbox = false;
         blockInput = false;
         throwStartPosition = IKController.rightHandObj.localPosition;
         throwStartRotaion = IKController.rightHandObj.localRotation.eulerAngles;
@@ -115,5 +117,21 @@ public class Player : MonoBehaviour
     public void CollectCell()
     {
         CollectedCells++;
+    }
+
+    public void GetMatchbox()
+    {
+        HasMatchbox = true;
+    }
+
+    public void UseMatchbox()
+    {
+        HasMatchbox = false;
+        AnimatorComponent.SetBool("IsCrouch", true);
+    }
+
+    public void StandUp()
+    {
+        AnimatorComponent.SetBool("IsCrouch", false);
     }
 }
